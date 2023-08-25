@@ -1,28 +1,24 @@
-//import Head from 'next/head'
 import React from 'react';
-import Image from 'next/image' // Import the Image component
-//import { Inter } from 'next/font/google'
+import Image from 'next/image';
 import Link from 'next/link';
 import Layout from './Layout/layout';
-
-
-
-//const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   return (
     <>
+      <Layout page="Home">
 
-    <Layout page="Home">
-    
-    
-      
-      <h1>Home Page</h1>
-      {}
-      <Image src="/57.jpeg" alt="click_me" width={500} height={300} />
+      <div className="bg-blue-500 text-white p-4">
+This is my component!
+</div>
 
-<div><Link href="/Customer/LogIn">Login</Link></div>
-      
+        <h1>Home Page</h1>
+        <Image src="/57.jpeg" alt="click_me" width={500} height={300} />
+        
+        <div>
+          <Link href="/Customer/LogIn">Login</Link>
+        </div>
+
       </Layout>
     </>
   );

@@ -18,9 +18,9 @@ const Home = () => {
           height={200} 
         />
       </div>
-      <div><Link href='/Customer/ViewProduct'>View_Product</Link></div>
+      <div><Link href='/Customer/ViewProduct'>Buing Products</Link></div>
       <div><Link href='/Customer/UpdateProfile'>Update_Profile</Link></div>
-      <div><Link href='about'>View_Histrory</Link></div>
+      <div><Link href='/Customer/getallproduct'>View_Products</Link></div>
       <div><Link href='about'>View_carts</Link></div>
      <div><Link href='about'>View_Wishlist</Link></div>
      <div><Link href='about'>Delete Product</Link></div>

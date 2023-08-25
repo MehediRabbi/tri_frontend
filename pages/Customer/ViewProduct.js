@@ -1,66 +1,55 @@
-import Layout from '../Layout/layout';
-import Image from 'next/image';
-import Link from 'next/link';
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from 'axios';
+import Layout from '../Layout/layout';
+
 
 export default function View_Product() {
   const [products, setProducts] = useState([]);
-   
-    async function ForViewProfile()
-  {try {
-    const phoneNo="ab@gmail.com";
-    const response = await axios.get(`http://localhost:3000/customer/products/`+phoneNo);
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const email = "ab@gmail.com";
+        const response = await axios.get(`http://localhost:3000/customer/products/` + email);
+
+        console.log(response.data);
+
+        setProducts(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    fetchData();
+  }, []);
+
+  const handleReject = async (productId) => {
+    try {
+      const response = await axios.delete(`http://localhost:3000/customer/delete_order/${productId}`);
 
       console.log(response.data);
-
-      setProducts(response.data);
+      // You can refresh the product list after deleting the order
+      fetchData();
+    } catch (error) {
+      console.log(error);
     }
-    catch(error)
-    {console.log(error); }
-}
-ForViewProfile();
-const handleReject = (productId) => {
-  Reject();
-  async function Reject(){
-    try {
-      
-      const response = await axios.delete(`http://localhost:3000/customer/delete_order/${productId}`);
-  
-        console.log(response.data);
-  
-       
-      }
-      catch(error)
-      {console.log(error); }
   }
-}
+
   return (
-    <>
-      <Layout page="about">
+    <Layout page="about">
       <div>
-      <h2>Product List</h2>
-      <ul>
-        {products.map((product) => (
-          <li key={product.id}>
-            <img src={product.photoPath} alt={product.name} />
-            <h3>{product.name}</h3>
-            <p>{}</p>
-            <button onClick={() => handleReject(product.id)}>Reject</button>
-            <button>View Details</button>
-          </li>
-        ))}
-      </ul>
-    </div>
-        {/* <div>
-          <Image src="/1 (2).jpeg" alt="" width={500} height={300} />
-          <p>Quactas - 150 TK</p>
-          <Link href="/buy">
-            <button>Buy</button>
-            <button>Add to carts</button>
-          </Link>
-        </div> */}
-      </Layout>
-    </>
+        <h2>Product List</h2>
+        <ul>
+          {products.map((product) => (
+            <li key={product.id}>
+              <img src={`http://localhost:3000/customer/getimage/${product.photoPath}`} alt={product.name} width={300} height={200} />
+              <h3>{product.name}</h3>
+              <button onClick={() => handleReject(product.id)}>Reject</button>
+              <button>View Details</button>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </Layout>
   );
 }
