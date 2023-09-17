@@ -105,124 +105,151 @@ console.log(response.data);
   };
 
   return (
-    <div>
-      <Layout page="">
-      <h2>Registration</h2>
-      {errorMessage && <p>{errorMessage}</p>}
-      <form onSubmit={handleRegistration}>
-        <div>
-          <label>First Name:</label>
-          <input
-            type="text"
-            value={firstName}
-            onChange={(e) => setFirstName(e.target.value)}
-          />
-        </div>
-        <div>
-          <label>Last Name:</label>
-          <input
-            type="text"
-            value={lastName}
-            onChange={(e) => setLastName(e.target.value)}
-          />
-        </div>
-        <div>
-          <label>Phone Number:</label>
-          <input
-            type="text"
-            value={phoneNumber}
-            onChange={(e) => setPhoneNumber(e.target.value)}
-          />
-        </div>
-        <div>
-          <label>Email:</label>
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </div>
-        <div>
-          <label>Password:</label>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </div>
-        <div>
-          <label>Confirm Password:</label>
-          <input
-            type="password"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-          />
-        </div>
-        <div>
-          <label>Gender:</label>
-          <select value={gender} onChange={(e) => setGender(e.target.value)}>
-            <option value="">Select Gender</option>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-            <option value="other">Other</option>
-          </select>
-        </div>
-        <div>
-          <label>Date of Birth:</label>
-          <input
-            type="date"
-            value={dateOfBirth}
-            onChange={(e) => setDateOfBirth(e.target.value)}
-          />
-        </div>
-        <div>
-          <label>House Name:</label>
-          <input
-            type="text"
-            value={house}
-            onChange={(e) => setHouseName(e.target.value)}
-          />
-        </div>
-        <div>
-          <label>Road Name:</label>
-          <input
-            type="text"
-            value={road}
-            onChange={(e) => setRoadName(e.target.value)}
-          />
-        </div>
-        <div>
-          <label>City Name:</label>
-          <input
-            type="text"
-            value={city}
-            onChange={(e) => setCityName(e.target.value)}
-          />
-        </div>
-        <div>
-          <label>District Name:</label>
-          <input
-            type="text"
-            value={district}
-            onChange={(e) => setDistrictName(e.target.value)}
-          />
-        </div>
-        <div>
-          <label>Customer Photo:</label>
-          <input
-            type="file"
-            accept="image/*"
-            onChange={(e) => setMyfile(e.target.files[0])}
-          />
-        </div>
-        <button type="submit">Register</button>
-      </form>
-      <p>
-         <Link href="/Customer/LogIn">Already have an account? Go to Login page</Link>
-      </p>
-      </Layout>
-    </div>
-  );
-};
-
-export default RegistrationPage;
+   
+      <div className="flex justify-center items-center min-h-screen bg-gray-100">
+        <div className="w-full max-w-md p-6 bg-white rounded-lg shadow-lg">
+          <h2 className="text-2xl font-semibold mb-4">Registration</h2>
+          {errorMessage && (
+            <p className="text-red-500 mb-4">{errorMessage}</p>
+          )}
+          <form onSubmit={handleRegistration} className="space-y-4">
+            <div>
+              <label className="block text-gray-700">First Name:</label>
+              <input
+                type="text"
+                className="form-input mt-1 block w-full"
+                value={firstName}
+                onChange={(e) => setFirstName(e.target.value)}
+              />
+            </div>
+            <div>
+              <label className="block text-gray-700">Last Name:</label>
+              <input
+                type="text"
+                className="form-input mt-1 block w-full"
+                value={lastName}
+                onChange={(e) => setLastName(e.target.value)}
+              />
+            </div>
+            <div>
+              <label className="block text-gray-700">Phone Number:</label>
+              <input
+                type="text"
+                className="form-input mt-1 block w-full"
+                value={phoneNumber}
+                onChange={(e) => setPhoneNumber(e.target.value)}
+              />
+            </div>
+            <div>
+              <label className="block text-gray-700">Email:</label>
+              <input
+                type="email"
+                className="form-input mt-1 block w-full"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
+            <div>
+              <label className="block text-gray-700">Password:</label>
+              <input
+                type="password"
+                className="form-input mt-1 block w-full"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </div>
+            <div>
+              <label className="block text-gray-700">Confirm Password:</label>
+              <input
+                type="password"
+                className="form-input mt-1 block w-full"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+              />
+            </div>
+            <div>
+              <label className="block text-gray-700">Gender:</label>
+              <select
+                className="form-select mt-1 block w-full"
+                value={gender}
+                onChange={(e) => setGender(e.target.value)}
+              >
+                <option value="">Select Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div>
+              <label className="block text-gray-700">Date of Birth:</label>
+              <input
+                type="date"
+                className="form-input mt-1 block w-full"
+                value={dateOfBirth}
+                onChange={(e) => setDateOfBirth(e.target.value)}
+              />
+            </div>
+            <div>
+              <label className="block text-gray-700">House Name:</label>
+              <input
+                type="text"
+                className="form-input mt-1 block w-full"
+                value={house}
+                onChange={(e) => setHouseName(e.target.value)}
+              />
+            </div>
+            <div>
+              <label className="block text-gray-700">Road Name:</label>
+              <input
+                type="text"
+                className="form-input mt-1 block w-full"
+                value={road}
+                onChange={(e) => setRoadName(e.target.value)}
+              />
+            </div>
+            <div>
+              <label className="block text-gray-700">City Name:</label>
+              <input
+                type="text"
+                className="form-input mt-1 block w-full"
+                value={city}
+                onChange={(e) => setCityName(e.target.value)}
+              />
+            </div>
+            <div>
+              <label className="block text-gray-700">District Name:</label>
+              <input
+                type="text"
+                className="form-input mt-1 block w-full"
+                value={district}
+                onChange={(e) => setDistrictName(e.target.value)}
+              />
+            </div>
+            <div>
+              <label className="block text-gray-700">Customer Photo:</label>
+              <input
+                type="file"
+                accept="image/*"
+                className="form-input mt-1 block w-full"
+                onChange={(e) => setMyfile(e.target.value)}
+                />
+                </div>
+                <button
+                  type="submit"
+                  className="btn bg-blue-500 text-white hover:bg-blue-600 w-full"
+                >
+                  Register
+                </button>
+              </form>
+              <p className="mt-4 text-center">
+                <Link href="/Customer/LogIn" className="text-blue-500">
+                  Already have an account? Go to Login page
+                </Link>
+              </p>
+            </div>
+          </div>
+       
+      );
+    };
+    
+    export default RegistrationPage;

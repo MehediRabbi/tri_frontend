@@ -5,21 +5,20 @@ import Layout from './Layout/layout';
 
 export default function Home() {
   return (
-    <>
-      <Layout page="Home">
-
-      <div className="bg-blue-500 text-white p-4">
-This is my component!
-</div>
-
-        <h1>Home Page</h1>
+   
+      <div className="flex flex-col items-center justify-center h-screen space-y-4">
+  
+        <h1 className="text-4xl font-bold">Home Page</h1>
         <Image src="/57.jpeg" alt="click_me" width={500} height={300} />
-        
-        <div>
-          <Link href="/Customer/LogIn">Login</Link>
-        </div>
 
-      </Layout>
-    </>
+        <div>
+          <Link href="/Customer/LogIn">
+            <button className="btn btn-primary">
+              Login
+            </button>
+          </Link>
+        </div>
+      </div>
+   
   );
 }
